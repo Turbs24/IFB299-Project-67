@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% block content %}
+
+{% block title %}Home{% endblock %}
+
+
+{% if user.is_authenticated %}
+  Hi {{ user.username }}!
+  <p><a href="{% url 'logout' %}">logout</a></p>
+{% else %}
+  <p>You are not logged in</p>
+  <a href="{% url 'login' %}">login</a>
+{% endif %}
+
+<div>
+	{% for car in cars %}
+		<div class= "carID">
+			<a href="{% url 'car_details' car.Car_ID %}">
+			<h3>{{car.Car_MakeName}} {{car.Car_Model}}</h3>
+				</a>
+
+				<p>this car is a {{ car.Car_BodyType}}</p>
+			</
+	{% endfor %}
+</div>
+{% endblock %}
