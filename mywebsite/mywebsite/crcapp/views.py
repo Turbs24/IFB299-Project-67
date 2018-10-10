@@ -14,3 +14,7 @@ def car_details(request, id):
 	except Car.DoesNotExist:
 		raise Http404('Car not found')
 	return render(request, 'car_details.html', {'car':car})
+	
+def vehicles(request):
+	cars = Car.objects.all()
+	return render(request, 'vehicles.html',{'cars': cars})

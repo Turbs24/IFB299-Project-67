@@ -22,11 +22,15 @@ from crcapp import views
 from accounts import views as accountview
 
 urlpatterns = [
+	path('', TemplateView.as_view(template_name='home.html'), name='home'),
 	path('home/', TemplateView.as_view(template_name='home.html'), name='home'),
 	path('admin/', admin.site.urls),
-	path(r'^cars/(\d+)/', views.car_details, name= 'car_details'),
+	re_path(r'^cars/(\d+)/', views.car_details, name= 'car_details'),
 	path('accounts/', include('accounts.urls')),
 	path('accounts/', include('django.contrib.auth.urls')),
 	path('accounts/signup/', accountview.SignUp.as_view(), name='signup'),
 	
+	path('booking/', TemplateView.as_view(template_name='booking.html'), name='bookings'),
+	re_path(r'^vehicles$',views.vehicles, name ='vehicles'),
+
 ]
