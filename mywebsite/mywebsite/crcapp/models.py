@@ -50,11 +50,11 @@ class Customer(models.Model):
 	
 class Orders(models.Model):
 	Order_ID = models.CharField(primary_key=True, max_length=10, blank=True)
-	Order_CreateDate = models.CharField(max_length=10, blank=True)
+	Order_CreateDate = models.DateField(auto_now=False, auto_now_add=False)
 	Order_PickupDate = models.CharField(max_length=10, blank=True)
 	Order_PickupStore = models.ForeignKey(Store,on_delete=models.CASCADE)
 	Order_ReturnStore = models.ForeignKey(Store,on_delete=models.CASCADE,related_name='+')
-	Order_ReturnDate = models.CharField(max_length=10, blank=True)
+	Order_ReturnDate = models.DateField(auto_now=False, auto_now_add=False)
 	Customer_ID = models.ForeignKey(Customer, on_delete=models.CASCADE, default="1")
 	Car_ID = models.ForeignKey(Car, on_delete=models.CASCADE, default="1")
 	def __unicode__(self):

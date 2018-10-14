@@ -32,5 +32,6 @@ urlpatterns = [
 	
 	path('booking/', TemplateView.as_view(template_name='booking.html'), name='bookings'),
 	re_path(r'^vehicles$',views.vehicles, name ='vehicles'),
+	re_path(r'^locations$',views.locations, name ='locations'),
 
 ]

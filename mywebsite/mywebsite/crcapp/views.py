@@ -2,6 +2,7 @@ from django.shortcuts import render
 from django.http import HttpResponse,Http404
 
 from crcapp.models import Car
+from crcapp.models import Orders
 
 def home(request):
 	cars = Car.objects.all()
@@ -18,3 +19,8 @@ def car_details(request, id):
 def vehicles(request):
 	cars = Car.objects.all()
 	return render(request, 'vehicles.html',{'cars': cars})
+
+def locations(request):
+	Orderslist = Orders.objects.all()
+	Orderslist = Orderslist.order_by('Order_ReturnDate')
+	return render(request, 'location.html',{'orders': Orderslist})

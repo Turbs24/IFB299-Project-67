@@ -31,8 +31,6 @@ class Command(BaseCommand):
 		for row in DictReader(open('./CarRentalDataSource.csv')):
 			car = Car()
 			car.Car_ID = row['Car_ID']
-			car.save()
-
 			car.Car_MakeName = row['Car_MakeName']
 			car.Car_Model = row['Car_Model']
 			car.Car_Series = row['Car_Series']
@@ -41,7 +39,6 @@ class Command(BaseCommand):
 			raw_Car_EngineSize = row['Car_EngineSize']
 			Car_EngineSize = raw_Car_EngineSize[:-1]
 			car.Car_EngineSize = Car_EngineSize
-
 			car.Car_FuelSystem = row['Car_FuelSystem']
 			raw_Car_TankCapacity = row['Car_TankCapacity']
 			Car_TankCapacity = raw_Car_TankCapacity[:-1]
@@ -118,12 +115,14 @@ class Command(BaseCommand):
 			orders = Orders()
 			
 			orders.Order_ID = row['Order_ID']
-			orders.Order_CreateDate = row['Order_CreateDate']
-			orders.Order_PickupDate = row['Order_PickupDate']
+			print(datetime.strptime(row['Order_ReturnDate'], '%Y%m%d').strftime('%Y-%m-%d'))
+			orders.Order_CreateDate = datetime.strptime(row['Order_CreateDate'], '%Y%m%d').strftime('%Y-%m-%d')
+			orders.Order_PickupDate = datetime.strptime(row['Order_PickupDate'], '%Y%m%d').strftime('%Y-%m-%d')
+			
 			orders.Order_PickupStore = Store.objects.filter(Store_ID=row['Order_PickupStore'])[0]
 			orders.Order_ReturnStore = Store.objects.filter(Store_ID=row['Order_ReturnStore'])[0]
 			
-			orders.Order_ReturnDate = row['Order_ReturnDate']
+			orders.Order_ReturnDate = datetime.strptime(row['Order_ReturnDate'], '%Y%m%d').strftime('%Y-%m-%d')
 			orders.Customer_ID = Customer.objects.filter(Customer_ID=row['Customer_ID'])[0]
 			orders.Car_ID = Car.objects.filter(Car_ID=row['Car_ID'])[0]
 			
