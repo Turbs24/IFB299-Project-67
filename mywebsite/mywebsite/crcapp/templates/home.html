@@ -1,8 +1,30 @@
 {% extends "base.html" %}
 {% block content %}
+{% load static %}
 
-{% block title %}Home{% endblock %}
+<u>
+About Us:
+</u>
 
+<p>
+Car Rental Company strives to blend the best in traditional and alternative cars in the lease and rental of good conditions vehicles including Premium SUV, SUC, Family cars, Premium Family Wagons, and economical budget deals. We employ the latest technology, along with the wisdom garnered in the driving cars all over the world, to find the safest and most effective vehicle for you at the cheapest possible price. We strive to bring the highest customer satisfaction over anything, as without happy customers, we do not have business.
+</p>
+
+<u>
+Car brands available for rent:
+</u>
+
+<p>
+<img src="{% static '/images/bmw.PNG' %}" width="50" height="100" alt = bmw>
+<img src="{% static '/images/landrover.PNG' %}" width="100" height="100" alt = landrover>
+<img src="{% static '/images/peugeot.JPG' %}" width="50" height="100" alt = peugeot>
+<img src="{% static '/images/volvoJPG.JPG' %}" width="50" height="100" alt = volvo>
+<img src="{% static '/images/nissan.JPG' %}" width="60" height="100" alt = nissan>
+</p>
+
+<p>
+and many more!!!
+</p>
 
 {% if user.is_authenticated %}
   Hi {{ user.username }}!
@@ -10,6 +32,8 @@
 {% else %}
   <p>You are not logged in</p>
   <a href="{% url 'login' %}">login</a>
+
+
 {% endif %}
 
 
