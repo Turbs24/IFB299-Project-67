@@ -1,23 +1,32 @@
 {% extends "base.html" %}
 {% block content %}
+{% load static %}
 
-<p>car {{car.Car_ID}}
+
+<img src="{% static '/images/car stock photo.png' %}" class="center">
+
+<u>
+    Car Details:
+</u>
+
+<p>
+    Car ID: {{car.Car_ID}}
 
 </p>
 
 <p>
-engine size = {{car.Car_EngineSize}}
+    Engine Size: {{car.Car_EngineSize}} L
 
 </p>
 
 <p>
-drive type = {{car.Car_Drive}}
+    Drive Type = {{car.Car_Drive}}
 
 </p>
 
 
 <p>
-call us on 391234 1234097 for mor info
+    Call us on 391234 1234097 for more information.
 
 </p>
 {% endblock %}
