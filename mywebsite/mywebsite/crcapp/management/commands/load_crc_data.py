@@ -1,5 +1,3 @@
-#Lydya source file
-
 from csv import DictReader
 from datetime import datetime
 
@@ -28,7 +26,7 @@ class Command(BaseCommand):
 			print('Car data already loaded...exiting.')
 			print(ALREADY_LOADED_ERROR_MESSAGE)
 			return
-		for row in DictReader(open('./CarRentalDataSource.csv')):
+		for row in DictReader(open('./CleanedCD.csv')):
 			car = Car()
 			car.Car_ID = row['Car_ID']
 			car.Car_MakeName = row['Car_MakeName']
@@ -43,9 +41,8 @@ class Command(BaseCommand):
 			raw_Car_TankCapacity = row['Car_TankCapacity']
 			Car_TankCapacity = raw_Car_TankCapacity[:-1]
 			
-			if Car_TankCapacity == 'NUL':
-				Car_TankCapacity = 0
-			Car_TankCapacity = float(Car_TankCapacity)
+			
+			Car_TankCapacity = (Car_TankCapacity)
 			car.Car_TankCapacity = Car_TankCapacity
 			car.Car_Power = row['Car_Power']
 			car.Car_SeatingCapacity = row['Car_SeatingCapacity']
@@ -60,7 +57,7 @@ class Command(BaseCommand):
 			print('Store data already loaded...exiting.')
 			print(ALREADY_LOADED_ERROR_MESSAGE)
 			return
-		for row in DictReader(open('./CarRentalDataSource.csv')):
+		for row in DictReader(open('./CleanedCD.csv')):
 			
 			store = Store()
 			
@@ -74,12 +71,14 @@ class Command(BaseCommand):
 			store.save()
 			
 			
-		for row in DictReader(open('./CarRentalDataSource.csv')):
+		for row in DictReader(open('./CleanedCD.csv')):
 			
 			store = Store()
 			
 			store.Store_ID = row['Order_ReturnStore']
-			store.Store_Name = row['Return_Store_Name']
+			tempstorename = row['Return_Store_Name']
+			tempstorename = tempstorename.replace("_", " ")
+			store.Store_Name = tempstorename
 			store.Store_Address = row['Return_Store_Address']
 			store.Store_Phone = row['Return_Store_Phone']
 			store.Store_City = row['Return_Store_City']
@@ -91,7 +90,7 @@ class Command(BaseCommand):
 			print('Customer data already loaded...exiting.')
 			print(ALREADY_LOADED_ERROR_MESSAGE)
 			return
-		for row in DictReader(open('./CarRentalDataSource.csv')):
+		for row in DictReader(open('./CleanedCD.csv')):
 			
 			customer = Customer()
 	
@@ -110,7 +109,7 @@ class Command(BaseCommand):
 			print('Orders data already loaded...exiting.')
 			print(ALREADY_LOADED_ERROR_MESSAGE)
 			return
-		for row in DictReader(open('./CarRentalDataSource.csv')):
+		for row in DictReader(open('./CleanedCD.csv')):
 			
 			orders = Orders()
 			
@@ -130,3 +129,16 @@ class Command(BaseCommand):
 		
 		
 		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+	
