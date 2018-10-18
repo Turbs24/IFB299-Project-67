@@ -34,4 +34,6 @@ urlpatterns = [
 	re_path(r'^vehicles$',views.vehicles, name ='vehicles'),
 	re_path(r'^locations$',views.locations, name ='locations'),
 
+	path('about/', TemplateView.as_view(template_name='about.html'), name='about'),
+
 ]
