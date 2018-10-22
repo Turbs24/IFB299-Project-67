@@ -23,6 +23,7 @@ class Car(models.Model):
 	def __str__(self):
 		return self.Car_Model
 
+
 class Store(models.Model):
 	Store_ID = models.CharField(primary_key=True,max_length=10, blank=True)
 	Store_Name = models.CharField(max_length=10, blank=True)
@@ -64,4 +65,6 @@ class Orders(models.Model):
 		
 	class Meta:
 		verbose_name_plural = "Orders"
+
+
 

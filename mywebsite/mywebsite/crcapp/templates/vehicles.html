@@ -1,15 +1,16 @@
 {% extends "base.html" %}
 {% block content %}
-
+{% load static %}
 
 <div>
 	{% for car in cars %}
 		<div class= "carID">
 			<a href="{% url 'car_details' car.Car_ID %}">
 			<h3>{{car.Car_MakeName}} {{car.Car_Model}}</h3>
-				</a>
+                <img src="{% static '/images/car stock photo.png' %}" class="center">
+            </a>
 
-				<p>this car is a {{ car.Car_BodyType}}</p>
+				<p>This car is a {{ car.Car_BodyType}}</p>
 			</
 	{% endfor %}
 </div>
