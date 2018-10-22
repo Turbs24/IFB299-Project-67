@@ -2,9 +2,10 @@
 {% block content %}
 
 <div>
-	{% for store in store %}
-		<div class= "iddiv">
-			<h3>{{store.Store_Name}} </h3>
+	{% for order in orders %}
+		<div class= "carID">
+			<h3>{{order.Order_ID}} </h3>
+			<h3>{{order.Car_ID}} </h3>
 				</a>
 			</
 	{% endfor %}

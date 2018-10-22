@@ -29,11 +29,11 @@ urlpatterns = [
 	path('accounts/', include('accounts.urls')),
 	path('accounts/', include('django.contrib.auth.urls')),
 	path('accounts/signup/', accountview.SignUp.as_view(), name='signup'),
-	path('deals/', TemplateView.as_view(template_name='deals.html'), name='deals'),
-	path('about/', TemplateView.as_view(template_name='about.html'), name='about'),
-	path('services/', TemplateView.as_view(template_name='services.html'), name='services'),
+	
 	path('booking/', TemplateView.as_view(template_name='booking.html'), name='bookings'),
 	re_path(r'^vehicles$',views.vehicles, name ='vehicles'),
 	re_path(r'^locations$',views.locations, name ='locations'),
+
+	path('about/', TemplateView.as_view(template_name='about.html'), name='about'),
 
 ]
