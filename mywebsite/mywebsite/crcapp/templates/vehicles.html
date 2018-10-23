@@ -7,7 +7,8 @@
 		<div class= "carID">
 			<a href="{% url 'car_details' car.Car_ID %}">
 			<h3>{{car.Car_MakeName}} {{car.Car_Model}}</h3>
-                <img src="{% static '/images/car stock photo.png' %}" class="center">
+            <img src="{% static '/images/car stock photo.png' %}" class="center">
+
             </a>
 
 				<p>This car is a {{ car.Car_BodyType}}</p>
