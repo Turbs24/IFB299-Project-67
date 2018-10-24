@@ -1,15 +1,26 @@
 /*CRCAPP
+
+Stylesheet css
 *
 *Author: Alan
+
 *Date: 2018
+
+Contents:
+1.0 basic layout settings
+2.0 background settings/text settings
+3.0 menu bar settings
+4. 0 makes the menu bar horizontal instead of vertical
+5.0 settings for the "text box" on the menu bar
+6.0 changes the "home button" settings
+7.0 changes the color of the button when hovered for readability
+8.0 changes the margin of the menu bar so it fits left to right
+
 */
 
-/*Start Public Domain Access Reset*/
-/* http://meyerweb.com/eric/tools/css/reset/
-   v2.0 | 20110126
-   License: none (public domain)
-*/
-
+/*
+1.0 basic layout settings
+ */
 .center {
     display: block;
     margin-left: auto;
@@ -18,25 +29,40 @@
     position: center;
 }
 
+/*
+2.0 background settings/text settings
+ */
 body {
     margin: 0;
+    background-color: white;
+    font: inherit;
+    font-size: 10px;
 }
 
+/*
+3.0 menu bar settings
+ */
 ul {
     list-style-type: none;
     margin: 0;
     padding: 0;
-    width: 25%;
+    width: 100%;
     background-color:#F08080;
     position: fixed;
     top: 0;
-    width: 100%;
     overflow: auto;
 }
+/*
+4. 0 makes the menu bar horizontal instead of vertical
+ */
+
 li {
     float: left;
 }
 
+/*
+5.0 settings for the "text box" on the menu bar
+ */
 li a {
     display: block;
     color: #000;
@@ -44,15 +70,27 @@ li a {
     text-decoration: none;
 }
 
+/*
+6.0 changes the "home button" settings
+ */
 li a.active {
     background-color:#F08080;
     color: black;
 }
 
+/*
+7.0 changes the color of the button when hovered for readability
+ */
 li a:hover:not(.active) {
     background-color: #F08080;
     color: white;
 }
+
+/*
+8.0 changes the margin of the menu bar so it fits left to right
+ */
 #page {
 	margin-left: 0%;
 }
+
+
